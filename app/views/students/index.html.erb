@@ -1,10 +1,9 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
-    <div class="col-md-6">
-      Name 1
-    </div>
-    <div class="col-md-6">
-      Name 2
-    </div>
+      <%= @pairs.each do |pair| %>
+        <div class="col-md-6">
+          pair
+        </div>
+      <%end%>
   </div>
 </div>
