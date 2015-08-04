@@ -1,2 +1,5 @@
 class Student < ActiveRecord::Base
-end
+  has_many :pairs
+  has_many :partners, through: :pairs
+  has_many :paired_students, through: :pairs, source: :students
+end 
