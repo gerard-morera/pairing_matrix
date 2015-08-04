@@ -27,8 +27,8 @@ feature 'students' do
       expect(page).to have_content 'George W Bush'
     end
   end
-end
 
-def create_pair student_one, student_two
-  create(:pair, student_one: student_one, student_two: student_two)
+  def create_pair student_one, student_two
+    create(:pair, student_id: student_one.id, partner_id: student_two.id)
+  end
 end
