@@ -10,7 +10,7 @@ feature 'students' do
   scenario 'lists students names' do
     visit root_path
     student     = create(:student, name: 'Ronald McDonald')
-    student_two = create(:student, name: 'Fred Flinstone')
+    student_two = create(:student, name: 'Fred Flintstone')
     click_link('All students')
     expect(page).to have_content 'Ronald McDonald'
     expect(page).to have_content 'Fred Flintstone'
