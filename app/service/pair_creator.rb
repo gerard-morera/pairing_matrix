@@ -1,5 +1,4 @@
 class PairCreator
-
   attr_reader :students
 
   def initialize
@@ -7,8 +6,8 @@ class PairCreator
   end
 
   def pairs
-    students.each_slice(2).each_with_object [] do |pairs, array_of_pairs|
-      array_of_pairs << pairs
+    students.each_slice(2).each_with_object [] do |pair, array_of_pairs|
+      array_of_pairs << pair
     end
   end
 
