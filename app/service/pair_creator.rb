@@ -7,6 +7,7 @@ class PairCreator
 
   def pairs
     students.each_slice(2).each_with_object [] do |pair, array_of_pairs|
+      binding.pry
       array_of_pairs << pair
     end
   end
@@ -17,3 +18,5 @@ private
     Student.all
   end
 end
+
+# 
