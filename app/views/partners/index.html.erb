@@ -1,19 +1,10 @@
-<div class="time col-md-offset-4 col-md-4 page-title">
-  <h2>Pairing History</h2>
-</div>
-<div class="pairing-wrapper col-md-6 col-md-offset-3">
-  <ul id='paired' class='col-md-6 list-group'>
-    <% @student.partners.each do |partner| %>
-      <li class='list-group-item list-group-item-success'>
-        <%= partner.name %>
-      </li>
-    <% end %>
-  </ul>
-  <ul id='unpaired' class='col-md-6 list-group'>
-    <% @unpaireds.each do |unpartner| %>
-     <li class='list-group-item list-group-item-danger'>   
-       <%= unpartner.name %>
-     </li>
-    <% end %>
-  </ul>
-</div>
+<ul id='paired'>
+  <% @student.partners.each do |partner| %>
+    <%= partner.name %>
+  <% end %>
+</ul>
+<ul id='unpaired'>
+  <% @unpaireds.each do |unpartner| %>
+    <%= unpartner.name %>
+  <% end %>
+</ul>
