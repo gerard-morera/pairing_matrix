@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'students#index'  
+  root to: 'pairs#index'
+  get '/students', to: 'students#index'
 end
