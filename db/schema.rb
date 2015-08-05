@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804115717) do
+ActiveRecord::Schema.define(version: 20150805110155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blacklists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "student_id"
+    t.integer  "enemy_id"
+  end
+
+  add_index "blacklists", ["student_id"], name: "index_blacklists_on_student_id", using: :btree
 
   create_table "pairs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,5 +40,6 @@ ActiveRecord::Schema.define(version: 20150804115717) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "blacklists", "students"
   add_foreign_key "pairs", "students"
 end
