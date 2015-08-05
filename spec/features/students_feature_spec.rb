@@ -21,7 +21,6 @@ feature 'students' do
     student_two = create(:student, name: 'George W Bush')
     create_pair student, student_two
     visit student_partners_path(student)
-    # expect(page).to have_content 'George W Bush - yes'
     within 'ul#paired' do
       expect(page).to have_content 'George W Bush'
     end
