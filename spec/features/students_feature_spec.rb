@@ -21,6 +21,7 @@ feature 'students' do
     student_two = create(:student, name: 'George W Bush')
     create_pair student, student_two
     visit root_path
+    click_link('Pairing History')
     select "Pink Panther", from: "studentsSelect"
     # expect(page).to have_content 'George W Bush - yes'
     within 'ul#paired' do
