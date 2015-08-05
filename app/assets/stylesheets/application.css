@@ -5,13 +5,10 @@
 html,
 body {
   height: 100%;
+  color: red;
   /* The html and body elements cannot have any padding or margin. */
 }
 
-.page-title h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
