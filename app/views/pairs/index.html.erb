@@ -6,9 +6,7 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
       <% @pairs.each do |pair| %>
-        <% pair.each do |student| %>
-          <%= student.name %>
-        <%end %>
+        <%= pair.student.name %> - <%= pair.partner.name %><br>
       <%end%>
       <%= link_to 'All students', students_path%>
   </div>
