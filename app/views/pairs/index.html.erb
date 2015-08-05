@@ -1,4 +1,4 @@
-<div class="date">
+<!-- <div class="date">
   <div class="col-md-offset-4">
     <h2><%= Time.now.strftime("%A %B %d") %></h2>
   </div>
@@ -9,4 +9,30 @@
         <%= pair.student.name %> - <%= pair.partner.name %><br>
       <%end%>
   </div>
+</div> -->
+<!-- <div class="col-md-12">
+
+
+
+<div class = "pairs-wrapper col-md-6 col-md-offset-4">
+  <div class="date" >
+    <div>
+      <h2><%= Time.now.strftime("%A %B %d") %></h2>
+    </div>
+  </div>
+  <div class="container">
+    <div>
+        <% @pairs.each do |pair| %>
+          <%= pair.student.name %> - <%= pair.partner.name %><br>
+        <%end%>
+    </div>
+  </div>
 </div>
+<col-md-4></col-md-4></col-md-4>
+</div> -->
+
+<div class="col-md-12">
+  <div class = "pairs-wrapper col-md-offset-4 col-md-4">
+    <h2><%= Time.now.strftime("%A %B %d") %></h2>
+  </div>
+</div

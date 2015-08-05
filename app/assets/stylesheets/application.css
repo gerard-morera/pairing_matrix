@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  color: red;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -53,4 +54,20 @@ code {
 .navbar-brand{
    font-size: 2.5em;
   color: green;
+}
+
+#pairing_history{
+  margin-top: 9px;
+}
+
+.navbar-inverse .container-fluid .navbar-brand {
+  color: #FFAC75;
+}
+
+.container .navbar-inverse .navbar-nav>li>a {
+  color: #FFAC75;
+}
+
+.navbar-header .navbar-brand {
+  font-size: 25px;
 }
