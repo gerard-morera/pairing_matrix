@@ -6,22 +6,19 @@ class PairCreator
   end
 
   def pairs
-    students.each_slice(2).each_with_object [] do |pair, array_of_pairs|
-      array_of_pairs << pair
-      record pair
+    students.each_slice(2).each_with_object [] do |(student_1, student_2), array_of_pairs|
+      array_of_pairs << generate_pair( student_1, student_2 )
     end
   end
 
 private
 
-  def record pair
-    Pair.create student_id: pair[0], partner_id: pair[1]
-    Pair.create student_id: pair[1], partner_id: pair[0]
+  def generate_pair student_1, student_2
+    Pair.create student_id: student_2.id, partner_id: student_1.id
+    Pair.create student_id: student_1.id, partner_id: student_2.id
   end
 
   def default_scope
     Student.all
   end
 end
-
-#
