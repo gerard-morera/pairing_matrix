@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'students' do
   scenario 'should display a pair of students' do
+    student     = create(:student, name: 'Jon Snow')
+    student_two = create(:student, name: 'Minnie Mouse')
     visit root_path
     expect(page).to have_content 'Jon Snow'
     expect(page).to have_content 'Minnie Mouse'
