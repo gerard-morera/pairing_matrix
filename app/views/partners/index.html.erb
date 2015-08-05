@@ -1,0 +1,10 @@
+<ul id='paired'>
+  <% @student.partners.each do |partner| %>
+    <%= partner.name %>
+  <% end %>
+</ul>
+<ul id='unpaired'>
+  <% @unpaireds.each do |unpartner| %>
+    <%= unpartner.name %>
+  <% end %>
+</ul>
