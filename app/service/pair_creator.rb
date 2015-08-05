@@ -22,5 +22,3 @@ private
     Student.all
   end
 end
-
-#
