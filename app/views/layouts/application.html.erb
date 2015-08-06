@@ -48,7 +48,11 @@
             </ul>
           </li>
           <li class="active">
-            
+            <% if current_student %>
+              <%= link_to 'Sign out', destroy_student_session_path %>
+            <% else %>
+              <%= link_to 'Sign in', new_student_session_path %>
+            <% end %>
           </li>
           
         </ul>

@@ -47,7 +47,7 @@ feature 'students' do
     click_link "Sign in"
     fill_in "Email", with: "homer@simpson.com"
     fill_in "Password", with: "homersimpson123"
-    click_on "Sign in"
+    click_on "Log in"
     expect(page).to have_content "Sign out"
   end
 
