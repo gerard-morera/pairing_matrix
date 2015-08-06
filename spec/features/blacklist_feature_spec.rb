@@ -1,7 +1,7 @@
 describe Blacklist do
   scenario 'viewing my blacklist' do
     student_1 = create(:student, name: "Mr Burns")
-    student_2 = create(:student, name: "Ms Theo")
+    student_2 = create(:student, name: "Ms Theo", email: "theo@me.com")
     blacklist = create(:blacklist, student_id: student_1.id, enemy_id: student_2.id)
     visit root_path
     within('ul.blacklist-dropdown') do
@@ -14,7 +14,7 @@ describe Blacklist do
   end
   scenario 'adding an enemy to the blacklist' do
     student_1 = create(:student, name: "Alberquerque Jones")
-    student_2 = create(:student, name: "Marvin Gaye")
+    student_2 = create(:student, name: "Marvin Gaye", email: "marv@me.com")
     visit student_blacklist_index_path(student_1)
     within "ul.potential-partners" do 
       click_link "Marvin Gaye"
