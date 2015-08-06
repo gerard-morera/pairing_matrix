@@ -22,18 +22,23 @@ feature 'students' do
     student     = create(:student, name: 'Pink Panther', email: "pink@me.com")
     student_two = create(:student, name: 'George W Bush', email: "georg@me.com")
     create_pair student, student_two
-    visit student_partners_path(student)
+    visit root_path
+    sign_in_as student
+    click_link 'Pairing history'
     within 'ul#paired' do
       expect(page).to have_content 'George W Bush'
     end
   end
 
   scenario 'lists who a student has not paired with' do
-    student = create(:student, name: 'Dracula', email: "drac@me.com")
-    student_two = create(:student, name: 'Bugggs Bunny', email: "buggs@me.com")
+    student       = create(:student, name: 'Dracula', email: "drac@me.com")
+    student_two   = create(:student, name: 'Bugggs Bunny', email: "buggs@me.com")
     student_three = create(:student, name: 'Maggie Thatcher', email: "coldheart@me.com")
+    student_four  = create(:student, name: 'Lucy Hargrave', email: "luce@gmail.com")
     create_pair student, student_two
-    visit student_partners_path(student)
+    visit root_path
+    sign_in_as student
+    click_link "Pairing history"
     within 'ul#unpaired' do
       expect(page).to have_content 'Maggie Thatcher'
     end
@@ -53,5 +58,12 @@ feature 'students' do
 
   def create_pair student_one, student_two
     create(:pair, student_id: student_one.id, partner_id: student_two.id)
+  end
+
+  def sign_in_as user
+    click_link 'Sign in'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_on 'Log in'
   end
 end

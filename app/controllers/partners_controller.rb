@@ -1,6 +1,5 @@
 class PartnersController < ApplicationController
   def index
-    @student   = Student.find(params[:student_id])
-    @unpaireds = @students - @student.partners - [@student]
+    @unpaireds = @students - current_student.partners - [current_student]
   end
 end
