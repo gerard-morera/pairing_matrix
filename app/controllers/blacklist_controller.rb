@@ -1,6 +1,8 @@
 class BlacklistController < ApplicationController
   def index
-    # @blacklisted_students = Blacklist.find_by student_id: params[]
+    @students        = Student.all
+    @current_student = Student.find(params[:student_id])
+    # @blacklists      = Blacklist.
   end
 
   def new

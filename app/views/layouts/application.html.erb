@@ -20,9 +20,24 @@
       </div>
       <div>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'All students', students_path %></li>
-          <li><a href="#contact">Blacklist</a></li>
+          <li>
+            <%= link_to 'Home', root_path %>
+          </li>
+          <li>
+            <%= link_to 'All students', students_path %>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Blacklist <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <% @students.each do |student| %>
+              <li>
+                <%= link_to student.name, student_blacklist_index_path(student) %>
+              </li>
+              <% end %>
+            </ul>
+          </li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pairing History <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% @students.each do |student| %>
