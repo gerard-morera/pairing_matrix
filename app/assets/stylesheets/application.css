@@ -14,3 +14,8 @@
 .navbar-header .navbar-brand {
   font-size: 25px;
 }
+
+body .pairing-wrapper .blacklisted .list-group-item{
+  background-color: #000000;
+  color: #ffffff;
+}
