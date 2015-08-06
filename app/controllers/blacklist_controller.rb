@@ -1,11 +1,8 @@
 class BlacklistController < ApplicationController
-  
-  def index
-    @current_student    = Student.find(params[:student_id])
-    @potential_partners = @students - @current_student.enemies - [@current_student]
-  end
+  before_action :authenticate_student!
 
-  def new
+  def index
+    @potential_partners = @students - current_student.enemies - [current_student]
   end
 
   def create
