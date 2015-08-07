@@ -6,10 +6,10 @@
     <% @pairs.each do |pair| %>
       <tr>
         <td>
-          <%= pair.student.name %>
+          <%= pair.student.name if pair %>
         </td>
         <td>
-          <%= pair.partner.name %>
+          <%= pair.partner.name if pair%>
         </td>
       </tr>
     <%end%>
