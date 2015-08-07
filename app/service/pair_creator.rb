@@ -18,7 +18,11 @@ class PairCreator
 private
 
   def generate_pair student_1, student_2
-    Pair.create student_id: student_2.id, partner_id: student_1.id
-    Pair.create student_id: student_1.id, partner_id: student_2.id
+    if student_1 and student_2
+      Pair.create student_id: student_2.id, partner_id: student_1.id
+      Pair.create student_id: student_1.id, partner_id: student_2.id
+    else
+      Pair.create student_id: student_1
+    end
   end
 end
