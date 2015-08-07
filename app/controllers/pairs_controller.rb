@@ -1,6 +1,5 @@
 class PairsController < ApplicationController
   def index
-    @students = Student.all
-    @pairs    = PairCreator.call(@students)
+    @pairs = PairCreator.call(Student.all)
   end
 end

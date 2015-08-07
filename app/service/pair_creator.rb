@@ -6,19 +6,23 @@ class PairCreator
   end
 
   def self.call students
-    new( students ).pairs
+    todays_pairs.empty? ? new(students).pairs : todays_pairs
   end
 
   def pairs
-    students.each_slice(2).each_with_object [] do |( student_1, student_2 ), array_of_pairs|
-      array_of_pairs << generate_pair( student_1, student_2 )
+    students.each_slice(2).each_with_object [] do |pair, array_of_pairs|
+      array_of_pairs << record(pair)
     end
   end
 
-private
+  private
 
-  def generate_pair student_1, student_2
-    Pair.create student_id: student_2.id, partner_id: student_1.id
-    Pair.create student_id: student_1.id, partner_id: student_2.id
+  def record pair
+    Pair.create student_id: pair.first.id, partner_id: pair.last.id
+    Pair.create partner_id: pair.first.id, student_id: pair.last.id
+  end
+
+  def self.todays_pairs
+    Pair.created_today
   end
 end
