@@ -1,28 +1,22 @@
 class PairCreator
-  attr_reader :students
+  attr_reader :students, :pair_recordable
 
-  def initialize students
-    @students = students
+  def initialize students, pair_recordable
+    @students   = students
+    @pair_recordable = pair_recordable
   end
 
-  def self.call students
-    new( students ).pairs
+  def self.call students, pair_recordable
+    todays_pairs.empty? ? new(students, pair_recordable).pairs : todays_pairs
   end
 
   def pairs
-    students.each_slice(2).each_with_object [] do |( student_1, student_2 ), array_of_pairs|
-      array_of_pairs << generate_pair( student_1, student_2 )
+    students.each_slice(2).each_with_object [] do |pair, array_of_pairs|
+      array_of_pairs << pair_recordable.record(pair)
     end
   end
 
-private
-
-  def generate_pair student_1, student_2
-    if student_1 and student_2
-      Pair.create student_id: student_2.id, partner_id: student_1.id
-      Pair.create student_id: student_1.id, partner_id: student_2.id
-    else
-      Pair.create student_id: student_1
-    end
+  def self.todays_pairs
+    Pair.created_today
   end
 end
