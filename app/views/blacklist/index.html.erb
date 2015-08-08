@@ -12,7 +12,6 @@
   <ul class="potential-partners col-md-6 list-group">
     <% current_student.friends.each do |friend| %>
       <li class="list-group-item">
-        <%binding.pry%>
         <%= link_to friend.name, student_blacklist_index_path(enemy: friend), method: :post %>
       </li>
     <% end %>
