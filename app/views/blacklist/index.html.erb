@@ -10,9 +10,9 @@
     <% end %>
   </ul>
   <ul class="potential-partners col-md-6 list-group">
-    <% @potential_partners.each do |potential_partner| %>
+    <% current_student.friends.each do |friend| %>
       <li class="list-group-item">
-        <%= link_to potential_partner.name, student_blacklist_index_path(enemy: potential_partner), method: :post %>
+        <%= link_to friend.name, student_blacklist_index_path(enemy: friend), method: :post %>
       </li>
     <% end %>
   </ul>

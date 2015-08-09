@@ -1,6 +1,7 @@
+require_relative '../service/pair_recordable'
+
 class PairsController < ApplicationController
   def index
-    @students = Student.all
-    @pairs    = PairCreator.call(@students)
+    @pairs = PairCreator.call(Student.all, PairRecordable)
   end
 end

@@ -3,17 +3,15 @@
 </div>
 <div class="pairs-wrapper col-md-offset-3 col-md-6">
   <table class="table table-striped">
-    <% if @pairs %>
-      <% @pairs.each do |pair| %>
-        <tr>
-          <td>
-            <%= pair.student.name %>
-          </td>
-          <td>
-            <%= pair.partner.name %>
-          </td>
-        </tr>
-      <%end%>
-    <% end %>
+    <% @pairs.each do |pair| %>
+      <tr>
+        <td>
+          <%= pair.student.name if pair %>
+        </td>
+        <td>
+          <%= pair.partner.name if pair%>
+        </td>
+      </tr>
+    <%end%>
   </div>
 </div

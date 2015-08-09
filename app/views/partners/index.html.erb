@@ -10,9 +10,9 @@
     <% end %>
   </ul>
   <ul id='unpaired' class='col-md-6 list-group'>
-    <% @unpaireds.each do |unpartner| %>
-     <li class='list-group-item list-group-item-danger'>   
-       <%= unpartner.name %>
+    <% current_student.possible_partners.each do |possible_partner| %>
+     <li class='list-group-item list-group-item-danger'>
+       <%= possible_partner.name %>
      </li>
     <% end %>
   </ul>
