@@ -2,7 +2,7 @@ class PairCreator
   attr_reader :students, :pair_recordable
 
   def initialize students, pair_recordable
-    @students   = students
+    @students        = students
     @pair_recordable = pair_recordable
   end
 
